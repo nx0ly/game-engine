@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node build/build.js",
-    "exec": "node build/build.js && node dist/index.js",
-    "start": "node build/build.js",
-    "dev": "node build/build.js --watch",
+    "build": "node build.js",
+    "exec": "node build.js && node dist/index.js",
+    "start": "node build.js",
+    "dev": "node build.js --watch",
     "commit": "git add . && git commit -m \"Automatic commit at $(date)\" && git push && clear"
   },
   "keywords": [],
