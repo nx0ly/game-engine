@@ -1,7 +1,7 @@
 interface Vector {
 	x: number;
 	y: number;
-	z: number;
+	z?: number;
 }
 
 interface Matrix {
@@ -9,6 +9,8 @@ interface Matrix {
 }
 
 interface UtilsStruct {
+    dimension: number;
+
 	radianToDegree: (radian: number) => number;
 	degreeToRadian: (degree: number) => number;
 	fastInvSqrt: (value: number) => number;
