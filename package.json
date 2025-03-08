@@ -1,0 +1,19 @@
+{
+  "name": "game-engine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build/build.js",
+    "exec": "node build/build.js && node dist/index.js",
+    "start": "node build/build.js",
+    "dev": "node build/build.js --watch",
+    "commit": "git add . && git commit -m \"Automatic commit at $(date)\" && git push && clear"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "esbuild": "^0.25.0"
+  }
+}
