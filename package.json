@@ -8,7 +8,7 @@
     "exec": "node build.js && node dist/index.js",
     "start": "node build.js",
     "dev": "node build.js --watch",
-    "commit": "git add . && git commit -m \"Automatic commit at $(date)\" && git push && clear"
+    "commit": "git add . && git commit -m \"Automatic commit at $(date)\" && git push"
   },
   "keywords": [],
   "author": "",
