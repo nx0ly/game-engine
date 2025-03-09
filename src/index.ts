@@ -1,5 +1,5 @@
-import { Circle } from "./objects/circle";
-import { Line } from "./objects/line";
+import type { Circle } from "./objects/circle";
+import type { Line } from "./objects/line";
 import { ColorUtils } from "./utils/colors";
 import { MathUtils } from "./utils/math";
 
