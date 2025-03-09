@@ -2,7 +2,8 @@ require("esbuild")
 	.build({
 		entryPoints: ["src/index.ts"],
 		bundle: true,
-		minify: true,
+		treeShaking: true,
+		//minify: true,
 		sourcemap: true,
 		target: "es2020",
 		outfile: "dist/index.js",
