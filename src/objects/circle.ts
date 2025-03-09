@@ -1,3 +1,4 @@
+import { MathUTILS } from "..";
 import type { Vector } from "../utils/utils";
 
 export class Circle implements Vector {
@@ -32,7 +33,7 @@ export class Circle implements Vector {
 			this.y + offset.y,
 			this.radius,
 			0,
-			Math.PI * 2,
+			MathUTILS.DPI,
 		);
 		context.fill();
 		context.stroke();
