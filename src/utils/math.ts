@@ -1,4 +1,4 @@
-import type { Matrix, Vector, UtilsStruct } from "./math.d";
+import type { Matrix, Vector, MathUtilsStruct } from "./utils";
 
 export const {
 	sin,
@@ -17,11 +17,15 @@ export const {
 	atan2,
 } = Math;
 
-class MathUtils implements UtilsStruct {
+export class MathUtils implements MathUtilsStruct {
 	public dimension: number;
 
 	constructor(dimension: number) {
 		this.dimension = dimension;
+	}
+
+	get DPI(): number {
+		return 2 * PI;
 	}
 
 	radianToDegree(radian: number): number {
@@ -59,7 +63,9 @@ class MathUtils implements UtilsStruct {
 
 			case 3:
 				return (
-					vector1.x * vector2.x + vector1.y * vector2.y + (vector2.z ?? 0) * (vector2.z ?? 0)
+					vector1.x * vector2.x +
+					vector1.y * vector2.y +
+					(vector2.z ?? 0) * (vector2.z ?? 0)
 				);
 
 			default:
@@ -136,26 +142,26 @@ class MathUtils implements UtilsStruct {
 		const cosAng = cos(angle);
 		const sinAng = sin(angle);
 
-        switch (this.dimension) {
-            case 2:
-                return {
-                    x: vector.x * cosAng - vector.y * sinAng,
-                    y: vector.x * sinAng + vector.y * cosAng,
-                };
+		switch (this.dimension) {
+			case 2:
+				return {
+					x: vector.x * cosAng - vector.y * sinAng,
+					y: vector.x * sinAng + vector.y * cosAng,
+				};
 
-            case 3:
-                return {
-                    x: vector.x * cosAng - vector.y * sinAng,
-                    y: vector.x * sinAng + vector.y * cosAng,
-                    z: vector.z,
-                };
+			case 3:
+				return {
+					x: vector.x * cosAng - vector.y * sinAng,
+					y: vector.x * sinAng + vector.y * cosAng,
+					z: vector.z,
+				};
 
-            default:
-                return {
-                    x: vector.x * cosAng - vector.y * sinAng,
-                    y: vector.x * sinAng + vector.y * cosAng,
-                };
-        }
+			default:
+				return {
+					x: vector.x * cosAng - vector.y * sinAng,
+					y: vector.x * sinAng + vector.y * cosAng,
+				};
+		}
 	}
 
 	scaleVector(vector: Vector, scalar: number): Vector {
@@ -170,7 +176,10 @@ class MathUtils implements UtilsStruct {
 		return {
 			x: vector.x + translation.x,
 			y: vector.y + translation.y,
-			z: vector.z !== undefined && translation.z !== undefined ? vector.z + translation.z : undefined,
+			z:
+				vector.z !== undefined && translation.z !== undefined
+					? vector.z + translation.z
+					: undefined,
 		};
 	}
 
