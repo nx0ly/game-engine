@@ -220,6 +220,8 @@ export class MathUtils implements MathUtilsStruct {
 		const size = matrix.elements.length;
 		const inverseMatrix: Matrix = { elements: [] };
 
+		// lolz O(n^4)
+
 		for (let i = 0; i < size; i++) {
 			inverseMatrix.elements.push([]);
 

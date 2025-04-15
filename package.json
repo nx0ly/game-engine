@@ -1,9 +1,10 @@
 {
   "name": "game-engine",
   "version": "1.0.0",
-  "description": "",
+  "description": "simple yet useful game engine for the web.",
   "main": "index.js",
   "scripts": {
+    "srt": "node dist/index.js",
     "build": "node build.js",
     "exec": "node build.js && node dist/index.js",
     "start": "node build.js",
@@ -11,9 +12,15 @@
     "commit": "git fetch && git add . && git commit -m \"Automatic commit at $(date)\" && git push"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "javedpension",
+  "license": "MIT",
   "dependencies": {
-    "esbuild": "^0.25.0"
+    "esbuild": "^0.25.0",
+    "tsg": "link:..\\..\\AppData\\Local\\pnpm\\global\\5\\node_modules\\tsg"
+  },
+  "pnpm": {
+    "overrides": {
+      "tsg": "link:..\\..\\AppData\\Local\\pnpm\\global\\5\\node_modules\\tsg"
+    }
   }
 }

@@ -13,16 +13,20 @@ export class Circle implements Vector {
 	public fillColor: string;
 	public outlineColor: string;
 
-	constructor(x: number, y: number, radius: number, z?: number) {
-		this.x = x;
-		this.y = y;
+	constructor(position: { x: number, y: number; z?: number }, radius: number, lineWidth: number, fillColor: string, outlineColor: string) {
+		this.x = position.x;
+		this.y = position.y;
 		this.radius = radius;
-		this.z = z ?? 0;
+		this.z = position.z ?? 0;
+
+		this.fillColor = fillColor;
+		this.outlineColor = outlineColor;
+		this.lineWidth = lineWidth;
 	}
 
 	render(
 		context: CanvasRenderingContext2D,
-		offset: { x: number; y: number },
+		offset: { x: number; y: number } = { x: 0, y: 0 },
 	): void {
 		context.beginPath();
 		context.lineWidth = this.lineWidth;

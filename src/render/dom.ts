@@ -1,4 +1,3 @@
-import { max, min, sqrt, atan2, cos, sin } from "../utils/math";
 import type { CanvasRenderingContext2DTypes } from "./render";
 
 export class RenderContext {
@@ -11,6 +10,8 @@ export class RenderContext {
 
         this.canvas = document.createElement("canvas");
         this.context = this.canvas.getContext(type) as CanvasRenderingContext2D;
+
+		document.body.appendChild(this.canvas);
 	}
 
 	setRectangularBoundary(width: number, height: number): void {
@@ -32,5 +33,9 @@ export class RenderContext {
 
 		// set border radius to 50% for circular canvas
 		this.canvas.style.borderRadius = "50%";
+	}
+
+	clear(): void {
+		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 	}
 }
