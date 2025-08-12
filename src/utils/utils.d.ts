@@ -1,3 +1,4 @@
+// TODO: No clue if it's a good idea to separate, figure out later.
 interface Vector {
 	x: number;
 	y: number;
@@ -13,7 +14,7 @@ interface MathUtilsStruct {
 
 	radianToDegree: (radian: number) => number;
 	degreeToRadian: (degree: number) => number;
-	fastInvSqrt: (value: number) => number;
+	//fastInvSqrt: (value: number) => number;
 	dotProduct: (vector1: Vector, vector2: Vector) => number;
 	crossProduct: (vector1: Vector, vector2: Vector) => Vector;
 	multiplyMatrix: (matrix1: Matrix, matrix2: Matrix) => Matrix;

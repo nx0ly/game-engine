@@ -17,6 +17,29 @@ export const {
 	atan2,
 } = Math;
 
+export class Vector2 implements Vector {
+	x: number;
+	y: number;
+
+	constructor(pos: [number, number]) {
+		this.x = pos[0];
+		this.y = pos[1];
+	}
+}
+
+export class Vector3 implements Vector {
+	x: number;
+	y: number;
+	z: number;
+
+	constructor(pos: [number, number, number]) {
+		this.x = pos[0];
+		this.y = pos[1];
+		this.z = pos[2];
+	}
+}
+
+
 export class MathUtils implements MathUtilsStruct {
 	public dimension: number;
 
@@ -38,6 +61,9 @@ export class MathUtils implements MathUtilsStruct {
 
 	// ? https://en.wikipedia.org/wiki/Fast_inverse_square_root
 	// TODO: Compare effectiveness of this method with native Math.sqrt()
+	// I compared; this is very slow compared to native Math.sqrt.
+	// See: https://jsbm.dev/PoCsPcz3mGhTB
+	/*
 	fastInvSqrt(value: number): number {
 		const halfValue = 0.5 * value;
 		let y = value;
@@ -55,6 +81,7 @@ export class MathUtils implements MathUtilsStruct {
 
 		return y;
 	}
+	*/
 
 	dotProduct(vector1: Vector, vector2: Vector): number {
 		return (

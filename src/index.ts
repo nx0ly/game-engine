@@ -1,9 +1,9 @@
 import { AssetManager } from "./assets/manageAssets";
-import type { Circle } from "./objects/circle";
-import type { Line } from "./objects/line";
+import { Circle } from "./models/2d/circle";
+import { Line } from "./models/2d/line";
 import { RenderContext } from "./render/dom";
 import { ColorUtils } from "./utils/colors";
-import { MathUtils } from "./utils/math";
+import { MathUtils, Vector2 } from "./utils/math";
 
 const MathUTILS = new MathUtils(3);
 const ColorUTILS = new ColorUtils();
@@ -42,24 +42,24 @@ class MainFrame {
         this.lines.push(line);
     }
 
-    addCircle(circle: Circle) {
-        this.circles.push(circle);
+    addCircle(origin: [number, number], radius: number, lineWidth: number, fillColor: string, outlineColor: string) {
+        this.circles.push(new Circle(origin, radius, lineWidth, fillColor, outlineColor));
     }
 
     addAsset(src: string, name: string) {
         return this.assetManager.addAsset(src, name);
     }
 
-    renderScene() {
+    renderScene(): void {
         const context = this.renderer.context;
         this.renderer.clear();
 
         for (const line of this.lines) {
-            line.render(context, { x: 0, y: 0 });
+            line.render(context);
         }
 
         for (const circle of this.circles) {
-            circle.render(context, { x: 0, y: 0 });
+            circle.render(context);
         }
     }
 
@@ -72,7 +72,7 @@ class MainFrame {
             this.renderScene();
             this.renderAssets();
             requestAnimationFrame(loop);
-        };
+        }
 
         loop();
     }
@@ -98,7 +98,11 @@ mainframe.renderScene();
 */
 
 const mainframe = new MainFrame();
-const asset = mainframe.addAsset("https://yepcode.io/docs/img/languages/javascript.svg", "jslogo");
+mainframe.addAsset("https://yepcode.io/docs/img/languages/javascript.svg", "jslogo");
 mainframe.renderer.setRectangularBoundary(500, 600);
 mainframe.renderer.canvas.style.backgroundColor = "black";
+mainframe.addLine(new Line(new Vector2([0, 0]), new Vector2([320, 600]), 4, "#fff", "round"));
+mainframe.renderScene();
 mainframe.start();
+mainframe.addLine(new Line(new Vector2([500, 600]), new Vector2([200, 300]), 4, "#fff", "round"));
+mainframe.addCircle([500, 100], 50, 5.5, "red", "yellow");
