@@ -17,6 +17,9 @@ importers:
       tsg:
         specifier: link:../../AppData/Local/pnpm/global/5/node_modules/tsg
         version: link:../../AppData/Local/pnpm/global/5/node_modules/tsg
+      zod:
+        specifier: ^4.0.17
+        version: 4.0.17
 
 packages:
 
@@ -175,6 +178,9 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  zod@4.0.17:
+    resolution: {integrity: sha512-1PHjlYRevNxxdy2JZ8JcNAw7rX8V9P1AKkP+x/xZfxB0K5FYfuV+Ug6P/6NVSR2jHQ+FzDDoDHS04nYUsOIyLQ==}
+
 snapshots:
 
   '@esbuild/aix-ppc64@0.25.0':
@@ -279,3 +285,5 @@ snapshots:
       '@esbuild/win32-arm64': 0.25.0
       '@esbuild/win32-ia32': 0.25.0
       '@esbuild/win32-x64': 0.25.0
+
+  zod@4.0.17: {}

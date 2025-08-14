@@ -31,14 +31,15 @@ export class Circle {
 		offset: { x: number; y: number } = { x: 0, y: 0 },
 	): void {
 		context.beginPath()
+		context.translate(offset.x, offset.y)
 
 		context.lineWidth = this.lineWidth
 		context.strokeStyle = this.outlineColor
 		context.fillStyle = this.fillColor
 
 		context.arc(
-			this.origin.x + offset.x,
-			this.origin.y + offset.y,
+			this.origin.x,
+			this.origin.y,
 			this.radius,
 			0,
 			MathUTILS.DPI,
@@ -46,5 +47,7 @@ export class Circle {
 		
 		context.stroke()
 		context.fill()
+
+        context.closePath()
 	}
 }

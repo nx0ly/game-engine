@@ -4,5 +4,6 @@
     "useTabs": true,
     "semi": false,
     "singleQuote": false,
-    "arrowParens": "always"
+    "arrowParens": "always",
+    "experimentalTernaries": true
 }

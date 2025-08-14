@@ -16,7 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "esbuild": "^0.25.0",
-    "tsg": "link:..\\..\\AppData\\Local\\pnpm\\global\\5\\node_modules\\tsg"
+    "tsg": "link:..\\..\\AppData\\Local\\pnpm\\global\\5\\node_modules\\tsg",
+    "zod": "^4.0.17"
   },
   "pnpm": {
     "overrides": {

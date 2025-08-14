@@ -1,6 +1,7 @@
 import { AssetManager } from "./assets/manageAssets";
 import { Circle } from "./models/2d/circle";
 import { Line } from "./models/2d/line";
+import { Rectangle } from "./models/2d/rectangle";
 import { RenderContext } from "./render/dom";
 import { ColorUtils } from "./utils/colors";
 import { MathUtils, Vector2 } from "./utils/math";
@@ -13,6 +14,7 @@ class MainFrame {
     public entities: any[];
     public lines: Line[];
     public circles: Circle[];
+    public rectangles: Rectangle[];
     public assetManager: AssetManager;
 
     public renderer: RenderContext;
@@ -21,6 +23,7 @@ class MainFrame {
         this.entities = [];
         this.lines = [];
         this.circles = [];
+        this.rectangles = []
 
         this.assetManager = new AssetManager();
         this.renderer = new RenderContext("2d");
@@ -46,6 +49,10 @@ class MainFrame {
         this.circles.push(new Circle(origin, radius, lineWidth, fillColor, outlineColor));
     }
 
+    addRectangle(rect: Rectangle) {
+        this.rectangles.push(rect);
+    }
+
     addAsset(src: string, name: string) {
         return this.assetManager.addAsset(src, name);
     }
@@ -60,6 +67,10 @@ class MainFrame {
 
         for (const circle of this.circles) {
             circle.render(context);
+        }
+
+        for (const rect of this.rectangles) {
+            rect.render(context);
         }
     }
 
@@ -106,3 +117,7 @@ mainframe.renderScene();
 mainframe.start();
 mainframe.addLine(new Line(new Vector2([500, 600]), new Vector2([200, 300]), 4, "#fff", "round"));
 mainframe.addCircle([500, 100], 50, 5.5, "red", "yellow");
+mainframe.addRectangle(new Rectangle(new Vector2([400, 400]), [100, 100], "#ff0000", "#00ff00", {
+    rounded: true,
+    lineWidth: 100
+}));

@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
+        "module": "nodenext",
         "lib": ["ES2024", "DOM"],
         "target": "es6",
-        
+        "moduleResolution": "nodenext"
     }
 }

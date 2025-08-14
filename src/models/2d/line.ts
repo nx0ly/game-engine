@@ -1,5 +1,4 @@
 import { Vector2 } from "../../utils/math"
-import type { Vector } from "../../utils/utils"
 
 type LineCapTypes = "butt" | "round" | "square"
 
@@ -26,18 +25,19 @@ export class Line {
 		this.lineCap = lineCap || "butt"
 	}
 
-	render(
+	public render(
 		context: CanvasRenderingContext2D,
 		offset: { x: number; y: number } = { x: 0, y: 0 },
 	): void {
 		context.beginPath()
+		context.translate(offset.x, offset.y)
 
 		context.lineCap = this.lineCap
 		context.lineWidth = this.lineWidth
 		context.strokeStyle = this.strokeStyle
 
-		context.moveTo(this.origin.x + offset.x, this.origin.y + offset.y)
-		context.lineTo(this.end.x + offset.x, this.end.y + offset.y)
+		context.moveTo(this.origin.x, this.origin.y)
+		context.lineTo(this.end.x, this.end.y)
 
 		context.stroke()
 	}

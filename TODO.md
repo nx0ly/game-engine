@@ -1,3 +1,6 @@
+# REWORK ASSETS
+# REWORK RENDER SYSTEM TO INCORPORATE PLUGIN SYSTEM
+
 - Think of a better way to apply transformations (especially in batches when this will support WebGL).
 - Add a way to link stuff together.
     - For example, you spawn a circle, you need to have a way to control it.
